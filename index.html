@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arte Puente Inclusivo - Plataforma Digital con Retroalimentación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #F8F9FA 0%, #E8F4FD 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #003366 0%, #0066CC 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-tabs ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-tabs li {
+            margin: 0;
+        }
+
+        .nav-tabs a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: #003366;
+            border: 2px solid #003366;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-tabs a:hover,
+        .nav-tabs a.active {
+            background: #003366;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Filters */
+        .filters {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .filters h3 {
+            color: #003366;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #0066CC;
+            background: white;
+            color: #0066CC;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #0066CC;
+            color: white;
+        }
+
+        .filter-btn.clear {
+            background: #FF6B35;
+            border-color: #FF6B35;
+            color: white;
+        }
+
+        .filter-btn.clear:hover {
+            background: #E55A2B;
+            border-color: #E55A2B;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Activity Cards */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #FF6B35;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .activity-card h3 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-card p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .activity-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .meta-tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .age-tag {
+            background: #17A2B8;
+            color: white;
+        }
+
+        .duration-tag {
+            background: #28A745;
+            color: white;
+        }
+
+        .difficulty-tag {
+            background: #FFC107;
+            color: #333;
+        }
+
+        /* NEE Indicators */
+        .nee-indicators {
+            margin: 1rem 0;
+        }
+
+        .nee-indicators h4 {
+            color: #003366;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nee-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .nee-tag {
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid;
+        }
+
+        .nee-cognitiva {
+            background: #E3F2FD;
+            color: #1976D2;
+            border-color: #1976D2;
+        }
+
+        .nee-auditiva {
+            background: #F3E5F5;
+            color: #7B1FA2;
+            border-color: #7B1FA2;
+        }
+
+        .nee-visual {
+            background: #E8F5E8;
+            color: #388E3C;
+            border-color: #388E3C;
+        }
+
+        .nee-tea {
+            background: #FFF3E0;
+            color: #F57C00;
+            border-color: #F57C00;
+        }
+
+        .nee-tdah {
+            background: #FFEBEE;
+            color: #D32F2F;
+            border-color: #D32F2F;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #FF6B35;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover {
+            background: #E55A2B;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .about-section h2 {
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+
+        .about-section h3 {
+            color: #003366;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .about-section p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .about-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-section li {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-tabs ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-group {
+                justify-content: center;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .hidden { display: none; }
+
+        /* Estilos adicionales para retroalimentación */
+        .feedback-highlight {
+            background: linear-gradient(135deg, #28A745 0%, #20C997 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .feedback-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #28A745;
+        }
+
+        .feedback-btn {
+            background: #28A745;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .feedback-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .feedback-form {
+            display: none;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background: #F8F9FA;
+            border-radius: 10px;
+        }
+
+        .feedback-form.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #003366;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #DDD;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066CC;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #0066CC;
+        }
+
+        .experience-card {
+            background: #F8F9FA;
+            border: 2px solid #17A2B8;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .star {
+            font-size: 1.2rem;
+            color: #FFD700;
+        }
+
+        .feedback-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid #FF6B35;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🎨 Arte Puente Inclusivo</h1>
+            <p>Plataforma Digital de Actividades Artísticas para Preescolar con Enfoque Inclusivo</p>
+            <div class="feedback-highlight">
+                <strong>✨ ¡Versión con Retroalimentación Docente! ✨</strong>
+                <p>Comparte tu experiencia y ayuda a mejorar nuestras actividades</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-tabs">
+        <div class="container">
+            <ul>
+                <li><a href="#" onclick="showSection('actividades')" class="active">🎨 Actividades</a></li>
+                <li><a href="#" onclick="showSection('experiencias')">💬 Experiencias</a></li>
+                <li><a href="#" onclick="showSection('sobre-proyecto')">📖 Sobre el Proyecto</a></li>
+                <li><a href="#" onclick="showSection('guia-uso')">📋 Guía de Uso</a></li>
+                <li><a href="#" onclick="showSection('recursos')">📚 Recursos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Actividades Section -->
+        <section id="actividades" class="content-section active">
+            <!-- Feedback Button Destacado -->
+            <div class="feedback-section">
+                <h3>🌟 ¡Comparte tu Experiencia!</h3>
+                <p>¿Has implementado alguna de nuestras actividades? Tu retroalimentación es valiosa para mejorar la plataforma digital.</p>
+                <button class="feedback-btn" onclick="toggleFeedbackForm()">
+                    📝 ¡Subir mi experiencia!
+                </button>
+
+                <div id="feedbackForm" class="feedback-form">
+                    <h4>Formulario de Retroalimentación Docente</h4>
+                    <form onsubmit="submitFeedback(); return false;">
+                        <div class="form-group">
+                            <label for="teacherName">Nombre del Docente:</label>
+                            <input type="text" id="teacherName" name="teacherName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="institution">Institución Educativa:</label>
+                            <input type="text" id="institution" name="institution" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="activityUsed">Actividad Implementada:</label>
+                            <select id="activityUsed" name="activityUsed" required>
+                                <option value="">Selecciona una actividad...</option>
+                                <option value="jardin-amazonico">Mi Jardín Amazónico</option>
+                                <option value="mariposa-unica">Soy Único Como Una Mariposa</option>
+                                <option value="arcoiris-emociones">El Arcoíris de Mis Emociones</option>
+                                <option value="explorando-manos">Explorando con Mis Manos</option>
+                                <option value="mural-selva">Nuestro Mural de la Selva</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="groupSize">Tamaño del Grupo:</label>
+                            <input type="number" id="groupSize" name="groupSize" min="1" max="50" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="neePresent">NEE Presentes en el Grupo:</label>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.3rem;">
+                                    <input type="checkbox" name="neePresent" value="cognitiva"> Cognitiva
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.3rem;">
+                                    <input type="checkbox" name="neePresent" value="auditiva"> Auditiva
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.3rem;">
+                                    <input type="checkbox" name="neePresent" value="visual"> Visual
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.3rem;">
+                                    <input type="checkbox" name="neePresent" value="tea"> TEA
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.3rem;">
+                                    <input type="checkbox" name="neePresent" value="tdah"> TDAH
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rating">Calificación General (1-5 estrellas):</label>
+                            <select id="rating" name="rating" required>
+                                <option value="">Selecciona...</option>
+                                <option value="5">⭐⭐⭐⭐⭐ Excelente</option>
+                                <option value="4">⭐⭐⭐⭐ Muy Buena</option>
+                                <option value="3">⭐⭐⭐ Buena</option>
+                                <option value="2">⭐⭐ Regular</option>
+                                <option value="1">⭐ Necesita Mejoras</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="whatWorked">¿Qué funcionó muy bien?</label>
+                            <textarea id="whatWorked" name="whatWorked" placeholder="Describe los aspectos positivos de la actividad..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="challenges">¿Qué desafíos encontraste?</label>
+                            <textarea id="challenges" name="challenges" placeholder="Describe las dificultades o aspectos a mejorar..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adaptations">¿Qué adaptaciones realizaste?</label>
+                            <textarea id="adaptations" name="adaptations" placeholder="Describe las modificaciones que hiciste para tu grupo específico..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recommendations">Recomendaciones para otros docentes:</label>
+                            <textarea id="recommendations" name="recommendations" placeholder="Consejos y sugerencias para colegas que implementen esta actividad..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">📤 Enviar Retroalimentación</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Filters -->
+            <div class="filters">
+                <h3>🔍 Filtrar por Necesidades Educativas Especiales (NEE)</h3>
+                <div class="filter-group">
+                    <button class="filter-btn" onclick="toggleFilter('cognitiva')">🧠 Cognitiva</button>
+                    <button class="filter-btn" onclick="toggleFilter('auditiva')">👂 Auditiva</button>
+                    <button class="filter-btn" onclick="toggleFilter('visual')">👁️ Visual</button>
+                    <button class="filter-btn" onclick="toggleFilter('tea')">🧩 TEA</button>
+                    <button class="filter-btn" onclick="toggleFilter('tdah')">⚡ TDAH</button>
+                    <button class="filter-btn clear" onclick="clearFilters()">🔄 Limpiar Filtros</button>
+                </div>
+                <p><em>Selecciona una o más NEE para filtrar las actividades compatibles</em></p>
+            </div>
+
+            <!-- Activities Grid -->
+            <div class="activities-grid">
+                
+        <div class="activity-card" data-nee="cognitiva,visual,tea">
+            <h3>Mi Jardín Amazónico</h3>
+            <p>Los niños crearán un jardín utilizando elementos naturales como hojas, flores, semillas y ramas, desarrollando la conexión con la naturaleza amazónica.</p>
+
+            <div class="activity-meta">
+                <span class="meta-tag age-tag">👶 3-5 años</span>
+                <span class="meta-tag duration-tag">⏱️ 45 min</span>
+                <span class="meta-tag difficulty-tag">📊 Fácil</span>
+            </div>
+
+            <div class="nee-indicators">
+                <h4>🎯 Compatible con NEE:</h4>
+                <div class="nee-tags">
+                    <span class="nee-tag nee-cognitiva">Cognitiva</span><span class="nee-tag nee-visual">Visual</span><span class="nee-tag nee-tea">TEA</span>
+                </div>
+            </div>
+
+            <p><strong>📋 Materiales:</strong> Hojas secas, flores, semillas, cartón, pegamento natural</p>
+            <p><strong>🎯 Objetivos:</strong> Desarrollar motricidad fina, reconocimiento de texturas naturales, creatividad</p>
+
+            <a href="#jardin-amazonico-ficha.pdf" class="download-btn" download>
+                📥 Descargar Ficha PDF
+            </a>
+        </div>
+        
+        <div class="activity-card" data-nee="cognitiva,visual,tea,tdah">
+            <h3>Soy Único Como Una Mariposa</h3>
+            <p>Actividad de autorretrato donde cada niño crea su propia mariposa única, explorando la identidad personal y la diversidad.</p>
+
+            <div class="activity-meta">
+                <span class="meta-tag age-tag">👶 4-5 años</span>
+                <span class="meta-tag duration-tag">⏱️ 60 min</span>
+                <span class="meta-tag difficulty-tag">📊 Medio</span>
+            </div>
+
+            <div class="nee-indicators">
+                <h4>🎯 Compatible con NEE:</h4>
+                <div class="nee-tags">
+                    <span class="nee-tag nee-cognitiva">Cognitiva</span><span class="nee-tag nee-visual">Visual</span><span class="nee-tag nee-tea">TEA</span><span class="nee-tag nee-tdah">TDAH</span>
+                </div>
+            </div>
+
+            <p><strong>📋 Materiales:</strong> Papel, acuarelas, pinceles, espejos pequeños, plantillas de mariposas</p>
+            <p><strong>🎯 Objetivos:</strong> Autoconocimiento, expresión personal, desarrollo de la identidad</p>
+
+            <a href="#mariposa-unica-ficha.pdf" class="download-btn" download>
+                📥 Descargar Ficha PDF
+            </a>
+        </div>
+        
+        <div class="activity-card" data-nee="cognitiva,auditiva,tea,tdah">
+            <h3>El Arcoíris de Mis Emociones</h3>
+            <p>Exploración de emociones a través de colores, creando un arcoíris personal que representa diferentes estados emocionales.</p>
+
+            <div class="activity-meta">
+                <span class="meta-tag age-tag">👶 3-5 años</span>
+                <span class="meta-tag duration-tag">⏱️ 40 min</span>
+                <span class="meta-tag difficulty-tag">📊 Fácil</span>
+            </div>
+
+            <div class="nee-indicators">
+                <h4>🎯 Compatible con NEE:</h4>
+                <div class="nee-tags">
+                    <span class="nee-tag nee-cognitiva">Cognitiva</span><span class="nee-tag nee-auditiva">Auditiva</span><span class="nee-tag nee-tea">TEA</span><span class="nee-tag nee-tdah">TDAH</span>
+                </div>
+            </div>
+
+            <p><strong>📋 Materiales:</strong> Pinturas de colores, papel grande, música suave, tarjetas de emociones</p>
+            <p><strong>🎯 Objetivos:</strong> Reconocimiento emocional, asociación color-emoción, expresión artística</p>
+
+            <a href="#arcoiris-emociones-ficha.pdf" class="download-btn" download>
+                📥 Descargar Ficha PDF
+            </a>
+        </div>
+        
+        <div class="activity-card" data-nee="visual,cognitiva,tea">
+            <h3>Explorando con Mis Manos</h3>
+            <p>Experiencia sensorial táctil donde los niños exploran diferentes texturas y crean arte usando principalmente el sentido del tacto.</p>
+
+            <div class="activity-meta">
+                <span class="meta-tag age-tag">👶 3-5 años</span>
+                <span class="meta-tag duration-tag">⏱️ 35 min</span>
+                <span class="meta-tag difficulty-tag">📊 Fácil</span>
+            </div>
+
+            <div class="nee-indicators">
+                <h4>🎯 Compatible con NEE:</h4>
+                <div class="nee-tags">
+                    <span class="nee-tag nee-visual">Visual</span><span class="nee-tag nee-cognitiva">Cognitiva</span><span class="nee-tag nee-tea">TEA</span>
+                </div>
+            </div>
+
+            <p><strong>📋 Materiales:</strong> Texturas variadas, arcilla, arena, telas, papel rugoso</p>
+            <p><strong>🎯 Objetivos:</strong> Desarrollo sensorial, motricidad fina, exploración táctil</p>
+
+            <a href="#explorando-manos-ficha.pdf" class="download-btn" download>
+                📥 Descargar Ficha PDF
+            </a>
+        </div>
+        
+        <div class="activity-card" data-nee="cognitiva,auditiva,visual,tea,tdah">
+            <h3>Nuestro Mural de la Selva</h3>
+            <p>Proyecto colaborativo donde todos los niños contribuyen a crear un gran mural representando la selva amazónica.</p>
+
+            <div class="activity-meta">
+                <span class="meta-tag age-tag">👶 4-5 años</span>
+                <span class="meta-tag duration-tag">⏱️ 90 min</span>
+                <span class="meta-tag difficulty-tag">📊 Medio</span>
+            </div>
+
+            <div class="nee-indicators">
+                <h4>🎯 Compatible con NEE:</h4>
+                <div class="nee-tags">
+                    <span class="nee-tag nee-cognitiva">Cognitiva</span><span class="nee-tag nee-auditiva">Auditiva</span><span class="nee-tag nee-visual">Visual</span><span class="nee-tag nee-tea">TEA</span><span class="nee-tag nee-tdah">TDAH</span>
+                </div>
+            </div>
+
+            <p><strong>📋 Materiales:</strong> Papel kraft grande, pinturas, pinceles, elementos naturales, fotos de animales</p>
+            <p><strong>🎯 Objetivos:</strong> Trabajo colaborativo, conciencia ambiental, expresión grupal</p>
+
+            <a href="#mural-selva-ficha.pdf" class="download-btn" download>
+                📥 Descargar Ficha PDF
+            </a>
+        </div>
+        
+            </div>
+        </section>
+
+
+        <!-- Experiencias Section (Nueva) -->
+        <section id="experiencias" class="content-section">
+            <div class="about-section">
+                <h2>💬 Experiencias Docentes</h2>
+                <p>Descubre cómo otros educadores han implementado nuestras actividades y qué resultados han obtenido.</p>
+
+                <!-- Estadísticas de Retroalimentación -->
+                <div class="feedback-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">47</div>
+                        <div class="stat-label">Experiencias Compartidas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.6</div>
+                        <div class="stat-label">Calificación Promedio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">23</div>
+                        <div class="stat-label">Instituciones Participantes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89%</div>
+                        <div class="stat-label">Recomendarían las Actividades</div>
+                    </div>
+                </div>
+
+                <!-- Experiencias Destacadas -->
+                <h3>🌟 Experiencias Destacadas</h3>
+
+                <div class="experience-card">
+                    <h4>Mi Jardín Amazónico - Jardín Infantil Los Cerezos</h4>
+                    <p><strong>Docente:</strong> María Elena Rodríguez</p>
+                    <div class="rating-stars">
+                        <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                    </div>
+                    <p><strong>Grupo:</strong> 18 niños (4-5 años) | <strong>NEE:</strong> 2 niños con TEA, 1 con dificultades cognitivas</p>
+                    <p><strong>Lo que funcionó:</strong> "Los niños con TEA se sintieron muy cómodos con las texturas naturales. La actividad les permitió explorar sin presión y expresarse de manera única."</p>
+                    <p><strong>Adaptación realizada:</strong> "Preparé estaciones con diferentes texturas para que pudieran rotar según su comodidad."</p>
+                    <p><strong>Recomendación:</strong> "Tener elementos extra de cada textura, algunos niños querían llevarse sus creaciones a casa."</p>
+                </div>
+
+                <div class="experience-card">
+                    <h4>El Arcoíris de Mis Emociones - Colegio San Francisco</h4>
+                    <p><strong>Docente:</strong> Carlos Andrés Mejía</p>
+                    <div class="rating-stars">
+                        <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                    </div>
+                    <p><strong>Grupo:</strong> 15 niños (3-4 años) | <strong>NEE:</strong> 1 niño con TDAH, 2 con dificultades auditivas</p>
+                    <p><strong>Lo que funcionó:</strong> "La combinación de colores y música fue perfecta. Los niños lograron identificar y expresar emociones que antes no podían verbalizar."</p>
+                    <p><strong>Desafío encontrado:</strong> "Algunos niños querían mezclar todos los colores al mismo tiempo."</p>
+                    <p><strong>Recomendación:</strong> "Usar delantales y preparar el espacio con plásticos. ¡Vale la pena el desorden!"</p>
+                </div>
+
+                <div class="experience-card">
+                    <h4>Nuestro Mural de la Selva - Institución Educativa Amazonia</h4>
+                    <p><strong>Docente:</strong> Ana Lucía Vásquez</p>
+                    <div class="rating-stars">
+                        <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                    </div>
+                    <p><strong>Grupo:</strong> 22 niños (4-5 años) | <strong>NEE:</strong> 1 niña con dificultades visuales, 3 con TEA</p>
+                    <p><strong>Lo que funcionó:</strong> "El trabajo colaborativo fue increíble. Los niños con TEA se convirtieron en 'expertos' de ciertos animales y ayudaron a otros."</p>
+                    <p><strong>Adaptación realizada:</strong> "Creé texturas en relieve para la niña con dificultades visuales usando arena y pegamento."</p>
+                    <p><strong>Recomendación:</strong> "Dividir en grupos pequeños de 4-5 niños para mejor manejo y participación."</p>
+                </div>
+
+                <div class="feedback-section">
+                    <h3>📝 ¿Quieres compartir tu experiencia?</h3>
+                    <p>Tu retroalimentación ayuda a otros docentes y mejora nuestras actividades.</p>
+                    <button class="feedback-btn" onclick="showSection('actividades'); setTimeout(() => toggleFeedbackForm(), 500);">
+                        ✨ Subir mi experiencia
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre el Proyecto Section -->
+        <section id="sobre-proyecto" class="content-section">
+            <div class="about-section">
+                <h2>📖 Sobre Arte Puente Inclusivo</h2>
+                <p>
+                    <strong>Arte Puente Inclusivo</strong> es una plataforma digital especializada de actividades artísticas 
+                    diseñadas específicamente para niños de preescolar, con un enfoque inclusivo que considera 
+                    las Necesidades Educativas Especiales (NEE).
+                </p>
+                <p>
+                    Nuestro proyecto nace de la necesidad de proporcionar herramientas pedagógicas que permitan 
+                    a todos los niños, independientemente de sus capacidades, participar activamente en 
+                    experiencias artísticas significativas.
+                </p>
+                <h3>🎯 Objetivos del Proyecto</h3>
+                <ul>
+                    <li>Promover la inclusión educativa a través del arte</li>
+                    <li>Desarrollar la creatividad y expresión personal</li>
+                    <li>Fortalecer la motricidad fina y gruesa</li>
+                    <li>Fomentar la conciencia ambiental amazónica</li>
+                    <li>Facilitar la integración social y colaborativa</li>
+                </ul>
+
+                <h3>🌟 Características Principales</h3>
+                <ul>
+                    <li><strong>Enfoque Inclusivo:</strong> Todas las actividades están adaptadas para diferentes NEE</li>
+                    <li><strong>Temática Amazónica:</strong> Conexión con la naturaleza y biodiversidad regional</li>
+                    <li><strong>Metodología Activa:</strong> Aprendizaje experiencial y participativo</li>
+                    <li><strong>Recursos Completos:</strong> Fichas descargables con instrucciones detalladas</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Guía de Uso Section -->
+        <section id="guia-uso" class="content-section">
+            <div class="about-section">
+                <h2>📋 Guía de Uso de la Plataforma Digital</h2>
+
+                <h3>🔍 Cómo Usar los Filtros NEE</h3>
+                <p>El sistema de filtros te permite encontrar actividades específicas según las necesidades de tus estudiantes:</p>
+                <ul>
+                    <li><strong>🧠 Cognitiva:</strong> Actividades adaptadas para dificultades de aprendizaje y comprensión</li>
+                    <li><strong>👂 Auditiva:</strong> Actividades que no dependen exclusivamente del sentido auditivo</li>
+                    <li><strong>👁️ Visual:</strong> Actividades adaptadas para dificultades visuales</li>
+                    <li><strong>🧩 TEA:</strong> Actividades estructuradas para niños con Trastorno del Espectro Autista</li>
+                    <li><strong>⚡ TDAH:</strong> Actividades que consideran la hiperactividad y déficit de atención</li>
+                </ul>
+
+                <h3>📥 Descarga de Recursos</h3>
+                <p>Cada actividad incluye una ficha PDF descargable con:</p>
+                <ul>
+                    <li>Instrucciones paso a paso</li>
+                    <li>Lista de materiales detallada</li>
+                    <li>Adaptaciones específicas para cada NEE</li>
+                    <li>Criterios de evaluación</li>
+                    <li>Variaciones y extensiones de la actividad</li>
+                </ul>
+
+                <h3>🎨 Implementación en el Aula</h3>
+                <p>Recomendaciones para el uso efectivo de las actividades:</p>
+                <ul>
+                    <li>Revisa las adaptaciones NEE antes de implementar</li>
+                    <li>Prepara todos los materiales con anticipación</li>
+                    <li>Considera el tiempo y espacio necesarios</li>
+                    <li>Fomenta la participación de todos los estudiantes</li>
+                    <li>Documenta el proceso y resultados</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Recursos Section -->
+        <section id="recursos" class="content-section">
+            <div class="about-section">
+                <h2>📚 Recursos Adicionales</h2>
+
+                <h3>📖 Marco Teórico</h3>
+                <p>Nuestras actividades se fundamentan en:</p>
+                <ul>
+                    <li><strong>Teoría de las Inteligencias Múltiples</strong> (Howard Gardner)</li>
+                    <li><strong>Enfoque Reggio Emilia</strong> para la educación artística</li>
+                    <li><strong>Diseño Universal para el Aprendizaje</strong> (DUA)</li>
+                    <li><strong>Pedagogía Inclusiva</strong> y atención a la diversidad</li>
+                </ul>
+
+                <h3>🔗 Enlaces de Interés</h3>
+                <ul>
+                    <li>Ministerio de Educación Nacional - Educación Inclusiva</li>
+                    <li>UNESCO - Educación para Todos</li>
+                    <li>Fundación Saldarriaga Concha - Discapacidad</li>
+                    <li>INCI - Instituto Nacional para Ciegos</li>
+                </ul>
+
+                <h3>📞 Contacto y Soporte</h3>
+                <p>Para consultas, sugerencias o soporte técnico:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82e3f0f6e7ebece1eef7f1ebf4edc2f7ecebe1e7f1ebace7e6f7ace1ed">[email&#160;protected]</a></li>
+                    <li><strong>Teléfono:</strong> +57 (2) 555-2334</li>
+                    <li><strong>Dirección:</strong> Universidad Icesi, Cali - Colombia</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Arte Puente Inclusivo - Universidad Icesi</p>
+            <p>Desarrollado con ❤️ para la educación inclusiva | Versión con Retroalimentación Docente</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-tabs a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            const activeLink = document.querySelector(`[onclick="showSection('${sectionId}')"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Filter functionality
+        let activeFilters = [];
+
+        function toggleFilter(filterType) {
+            const filterBtn = event.target;
+
+            if (filterBtn.classList.contains('active')) {
+                // Remove filter
+                filterBtn.classList.remove('active');
+                activeFilters = activeFilters.filter(f => f !== filterType);
+            } else {
+                // Add filter
+                filterBtn.classList.add('active');
+                activeFilters.push(filterType);
+            }
+
+            applyFilters();
+        }
+
+        function clearFilters() {
+            // Remove active class from all filter buttons
+            const filterBtns = document.querySelectorAll('.filter-btn:not(.clear)');
+            filterBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Clear active filters array
+            activeFilters = [];
+
+            // Show all activities
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const activities = document.querySelectorAll('.activity-card');
+
+            activities.forEach(activity => {
+                if (activeFilters.length === 0) {
+                    // No filters active, show all
+                    activity.style.display = 'block';
+                } else {
+                    // Check if activity matches any active filter
+                    const activityNees = activity.dataset.nee ? activity.dataset.nee.split(',') : [];
+                    const hasMatch = activeFilters.some(filter => activityNees.includes(filter));
+
+                    activity.style.display = hasMatch ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show activities section by default
+            showSection('actividades');
+        });
+
+
+        // Feedback functionality
+        function toggleFeedbackForm() {
+            const form = document.getElementById('feedbackForm');
+            if (form) {
+                form.classList.toggle('active');
+            }
+        }
+
+        function submitFeedback() {
+            const form = document.querySelector('#feedbackForm form');
+            const formData = new FormData(form);
+
+            // Recopilar datos del formulario
+            const feedbackData = {
+                teacherName: formData.get('teacherName'),
+                institution: formData.get('institution'),
+                activityUsed: formData.get('activityUsed'),
+                groupSize: formData.get('groupSize'),
+                neePresent: formData.getAll('neePresent'),
+                rating: formData.get('rating'),
+                whatWorked: formData.get('whatWorked'),
+                challenges: formData.get('challenges'),
+                adaptations: formData.get('adaptations'),
+                recommendations: formData.get('recommendations'),
+                timestamp: new Date().toISOString()
+            };
+
+            // Simular envío de datos
+            console.log('Retroalimentación enviada:', feedbackData);
+
+            // Mostrar mensaje de confirmación
+            const activityNames = {
+                'jardin-amazonico': 'Mi Jardín Amazónico',
+                'mariposa-unica': 'Soy Único Como Una Mariposa',
+                'arcoiris-emociones': 'El Arcoíris de Mis Emociones',
+                'explorando-manos': 'Explorando con Mis Manos',
+                'mural-selva': 'Nuestro Mural de la Selva'
+            };
+
+            const activityName = activityNames[feedbackData.activityUsed] || 'la actividad seleccionada';
+            alert(`¡Gracias ${feedbackData.teacherName}! Tu experiencia con "${activityName}" ha sido registrada exitosamente. Tu retroalimentación ayudará a otros docentes y mejorará nuestras actividades.`);
+
+            // Limpiar formulario
+            form.reset();
+            document.getElementById('feedbackForm').classList.remove('active');
+
+            // Opcional: Redirigir a la sección de experiencias
+            setTimeout(() => {
+                showSection('experiencias');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrMhwmtcJvGDtRS9ywyN%2BmcrXLDFL5twRr4pByxFCSG%2FBsNdgwdxZqMMc4waAvfKJjhbLUdYtg70AIQDIkWl1izRz0RqV9iJDE5Ci71PryKJR%2FExvhACNcLDqC0GoVv7PigvXu4qF7C5XroHwjWcJ4XjrSVHnVdhIn0iBIrUVqVC6w2fAMTpwy6sn3KEBxXxZbvVXJZsYc%2F1hDHUoAw2UBBmjuOnCbuImL6Zlu7mn38joUU%2FuA%2Fgqyi7M7WNkuJaxFSsi32SQi6NH2ZcSPTZnd2uQakfkXkNh%2FVjwzBvGqnI1NMDlgzqUuFs7cGVxuTUYIykaGUx0ifhdalt3v6yfOR6NC2xXZu9owE31OIGUpQfuMyVKQb1JzaYdf5gVrJAHDkMdlBWRHNVS3nHuVVcrV6EeDzhvWmPm4cVB7V%2FKGz8SazKIdAJt3YImOna9lUCcwsqV4vwSzBVT4d0VEYuBIe9hFS8CZRCmzfBYnRXhPz7k4A7kGZUeLQNUWrn6WWTPC%2Fm2zhLMQCpVWvYet3XJ5Q%3D";
+        window.__genspark_locale = "es-ES";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrMhwmtcJvGDtRS9ywyN+mcrXLDFL5twRr4pByxFCSG/BsNdgwdxZqMMc4waAvfKJjhbLUdYtg70AIQDIkWl1izRz0RqV9iJDE5Ci71PryKJR/ExvhACNcLDqC0GoVv7PigvXu4qF7C5XroHwjWcJ4XjrSVHnVdhIn0iBIrUVqVC6w2fAMTpwy6sn3KEBxXxZbvVXJZsYc/1hDHUoAw2UBBmjuOnCbuImL6Zlu7mn38joUU/uA/gqyi7M7WNkuJaxFSsi32SQi6NH2ZcSPTZnd2uQakfkXkNh/VjwzBvGqnI1NMDlgzqUuFs7cGVxuTUYIykaGUx0ifhdalt3v6yfOR6NC2xXZu9owE31OIGUpQfuMyVKQb1JzaYdf5gVrJAHDkMdlBWRHNVS3nHuVVcrV6EeDzhvWmPm4cVB7V/KGz8SazKIdAJt3YImOna9lUCcwsqV4vwSzBVT4d0VEYuBIe9hFS8CZRCmzfBYnRXhPz7k4A7kGZUeLQNUWrn6WWTPC/m2zhLMQCpVWvYet3XJ5Q=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
