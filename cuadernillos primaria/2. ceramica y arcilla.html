@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏺 Cerámica Vallecaucana: Arte en Arcilla - Cuadernillo Artístico NEE</title>
+
+    <!-- METADATOS PARA PLATAFORMA DIGITAL -->
+    <meta name="activity-id" content="ceramica-vallecaucana-arcilla">
+    <meta name="activity-title" content="🏺 Cerámica Vallecaucana: Arte en Arcilla">
+    <meta name="activity-description" content="Los estudiantes crean piezas cerámicas usando técnicas tradicionales vallecaucanas, desarrollando motricidad fina, creatividad tridimensional y conexión con tradiciones artesanales ancestrales.">
+
+    <!-- Clasificación por NEE -->
+    <meta name="nee-compatible" content="cognitiva,motriz">
+    <meta name="data-nee" content="cognitiva,motriz">
+
+    <!-- Clasificación por edad y características -->
+    <meta name="edad-minima" content="7">
+    <meta name="edad-maxima" content="9">
+    <meta name="edad-display" content="7-9 años">
+    <meta name="duracion-minutos" content="90">
+    <meta name="duracion-display" content="90 min">
+    <meta name="dificultad" content="media">
+    <meta name="dificultad-display" content="Media">
+
+    <!-- Clasificación por contexto y disciplina -->
+    <meta name="contexto-regional" content="vallecaucano">
+    <meta name="disciplina-artistica" content="ceramica-modelado">
+    <meta name="nivel-educativo" content="primaria">
+    <meta name="modalidad" content="presencial">
+
+    <!-- Materiales y recursos -->
+    <meta name="materiales-principales" content="arcilla-plastilina,agua-recipiente,herramientas-modelado,pinturas-acrilicas,pinceles,trapo-humedo,delantal-ropa,periodico-proteccion">
+    <meta name="materiales-tipo" content="artesanales,ceramicos,tradicionales">
+    <meta name="espacio-requerido" content="mesa-trabajo-protegida">
+
+    <!-- Objetivos pedagógicos -->
+    <meta name="objetivos" content="motricidad-fina-coordinacion,tradiciones-culturales-vallecaucanas,creatividad-tridimensional,paciencia-concentracion,tecnicas-alfareria">
+
+    <!-- Para JavaScript de filtros -->
+    <meta name="filter-tags" content="cognitiva,motriz,ceramica,vallecaucano,primaria,artesanal">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        line-height: 1.4;
+        background: white;
+      }
+
+      .page {
+        min-height: 700px;
+        margin-bottom: 60px;
+        padding: 40px;
+        border: 1px solid #e0e0e0;
+        page-break-after: always;
+        background: white;
+      }
+
+      .header {
+        text-align: center;
+        background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        color: #2d5016;
+      }
+
+      .page-number {
+        text-align: center;
+        margin-top: 30px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .website {
+        text-align: center;
+        color: #2d5016;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .nee-badges {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .nee-badge {
+        background: #f0f8e8;
+        padding: 8px 15px;
+        border-radius: 20px;
+        border: 2px solid #88d8a3;
+        color: #2d5016;
+        font-weight: bold;
+        font-size: 0.9em;
+      }
+
+      .materials-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .material-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      .objectives {
+        background: #e8f5e8;
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 5px solid #88d8a3;
+      }
+
+      .step-header {
+        background: #88d8a3;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .step-number {
+        background: white;
+        color: #88d8a3;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .drawing-space {
+        border: 2px dashed #88d8a3;
+        height: 120px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-style: italic;
+        margin: 15px 0;
+        text-align: center;
+        font-size: 0.9em;
+      }
+
+      .adaptation-box {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        font-size: 0.9em;
+      }
+
+      .curious-fact {
+        background: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .evaluation-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        align-items: center;
+        margin: 15px 0;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 5px;
+      }
+
+      .emoji-options {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .emoji-box {
+        width: 40px;
+        height: 40px;
+        border: 2px solid #88d8a3;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        background: white;
+      }
+
+      h1 {
+        font-size: 2.2em;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 1.6em;
+        color: #2d5016;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      h3 {
+        font-size: 1.3em;
+        color: #2d5016;
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        margin: 25px 0;
+        text-align: center;
+      }
+
+      .info-item {
+        background: #f0f8e8;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid #88d8a3;
+      }
+
+      .info-value {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #2d5016;
+        display: block;
+      }
+
+      .info-label {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+      }
+
+      .checkbox-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .checkbox-list li {
+        margin: 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .checkbox-list input[type='checkbox'] {
+        transform: scale(1.2);
+      }
+
+      .technique-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .technique-item {
+        background: #f0f8e8;
+        padding: 15px;
+        border-radius: 8px;
+        border: 2px solid #88d8a3;
+      }
+
+      .color-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .color-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        background: #f9f9f9;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body style="">
+    <!-- PÁGINA 1: PORTADA -->
+    <div class="page">
+      <div class="website">arteinclusivoeducativo.com</div>
+
+      <div class="header">
+        <h1>🏺 Cerámica Vallecaucana</h1>
+        <p style="font-size: 1.2em; margin: 15px 0">Arte en Arcilla</p>
+        <p style="font-size: 1em; margin: 10px 0">Cuadernillo de Actividades Artísticas para Estudiantes con NEE</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-value">7-9</span>
+          <div class="info-label">Años</div>
+        </div>
+        <div class="info-item">
+          <span class="info-value">90</span>
+          <div class="info-label">Minutos</div>
+        </div>
+        <div class="info-item">
+          <span class="info-value">Media</span>
+          <div class="info-label">Dificultad</div>
+        </div>
+      </div>
+
+      <div class="nee-badges">
+        <div class="nee-badge">🧠 Cognitiva</div>
+        <div class="nee-badge">🤲 Motriz</div>
+      </div>
+
+      <div style="text-align: center; margin: 30px 0">
+        <h2 style="color: #2d5016">¡Descubre el Arte de la Cerámica del Valle!</h2>
+        <p style="font-size: 1.1em; line-height: 1.6; color: #555">
+          En este cuadernillo aprenderás las técnicas tradicionales de la cerámica vallecaucana. Trabajarás con arcilla
+          para crear hermosas piezas mientras desarrollas tu motricidad fina y conoces las tradiciones artesanales de
+          nuestra región.
+        </p>
+      </div>
+
+      <div style="background: #f0f8e8; padding: 20px; border-radius: 10px; margin-top: 25px; border: 2px solid #88d8a3">
+        <h3 style="margin-top: 0; text-align: center">🏺 ¿Qué vas a crear?</h3>
+        <ul style="font-size: 1em; line-height: 1.6">
+          <li>🏺 Una pieza cerámica única (vasija o plato)</li>
+          <li>🎨 Decoración con patrones vallecaucanos</li>
+          <li>🌿 Conexión con tradiciones ancestrales</li>
+          <li>🤲 Desarrollo de motricidad fina</li>
+          <li>✨ Una obra de arte para conservar</li>
+        </ul>
+      </div>
+
+      <div class="page-number">Página 1 de 8</div>
+    </div>
+
+    <!-- PÁGINA 2: MATERIALES Y OBJETIVOS -->
+    <div class="page">
+      <div class="website">arteinclusivoeducativo.com</div>
+
+      <div class="header">
+        <h2>📋 Materiales y Objetivos</h2>
+      </div>
+
+      <h3>📋 Materiales Necesarios:</h3>
+      <div class="materials-grid">
+        <div class="material-item">
+          <span style="font-size: 1.5em">🏺</span>
+          <div>
+            <strong>Arcilla o Plastilina de Modelar</strong><br>
+            <small>Material principal para crear la pieza</small>
+          </div>
+        </div>
+        <div class="material-item">
+          <span style="font-size: 1.5em">💧</span>
+          <div>
+            <strong>Agua en Recipiente</strong><br>
+            <small>Para humedecer y suavizar la arcilla</small>
+          </div>
+        </div>
+        <div class="material-item">
+          <span style="font-size: 1.5em">🥄</span>
+          <div>
+            <strong>Herramientas de Modelado</strong><br>
+            <small>Palitos, espátulas o cucharas</small>
+          </div>
+        </div>
+        <div class="material-item">
+          <span style="font-size: 1.5em">🎨</span>
+          <div>
+            <strong>Pinturas Acrílicas o Témperas</strong><br>
+            <small>Para decorar la pieza terminada</small>
+          </div>
+        </div>
+        <div class="material-item">
+          <span style="font-size: 1.5em">🖌</span>
+          <div>
+            <strong>Pinceles</strong><br>
+            <small>De diferentes tamaños para decorar</small>
+          </div>
+        </div>
+        <div class="material-item">
+          <span style="font-size: 1.5em">🧽</span>
+          <div>
+            <strong>Trapo Húmedo</strong><br>
+            <small>Para limpiar manos y herramientas</small>
+          </div>
+        </div>
+        <div class="material-item">
+          <span style="font-size: 1.5em">👕</span>
+          <div>
+            <strong>Delantal o Ropa Vieja</strong><br>
+            <small>Para proteger la ropa durante el trabajo</small>
+          </div>
+        </div>
+        <div class="material-item">
+          <span style="font-size: 1.5em">📰</span>
+          <div>
+            <strong>Periódico para Proteger Mesa</strong><br>
+            <small>Para mantener limpio el espacio de trabajo</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="objectives">
+        <h3 style="margin-top: 0">🎯 Objetivos de Aprendizaje:</h3>
+        <ul style="line-height: 1.6">
+          <li><strong>Desarrollar motricidad fina y coordinación</strong> a través del modelado en arcilla</li>
+          <li><strong>Conocer tradiciones culturales vallecaucanas</strong> de la alfarería ancestral</li>
+          <li><strong>Estimular creatividad tridimensional</strong> y pensamiento espacial</li>
+          <li><strong>Fortalecer paciencia y concentración</strong> en el proceso creativo</li>
+          <li><strong>Conectar con técnicas artesanales</strong> y patrimonio cultural regional</li>
+          <li><strong>Experimentar con texturas y formas</strong> usando las manos como herramienta</li>
+        </ul>
+      </div>
+
+      <div class="curious-fact">
+        <h4>🏺 Tradición Alfarera</h4>
+        <p>
+          La cerámica en el Valle del Cauca tiene raíces precolombinas. Los indígenas Calima y otros pueblos ancestrales
+          crearon hermosas cerámicas que hoy admiramos en museos. Esta tradición continúa viva en nuestros artesanos
+          contemporáneos.
+        </p>
+      </div>
+
+      <h3>🧠 Adaptaciones NEE Específicas:</h3>
+      <div class="adaptation-box">
+        <strong>🧠 Cognitiva:</strong> Se presentan técnicas paso a paso con ejemplos visuales claros. Cada proceso se
+        explica de manera simple y se permite tiempo adicional para la comprensión y ejecución.<br><br>
+        <strong>🤲 Motriz:</strong> Se adaptan las herramientas para facilitar el agarre, se proporcionan diferentes
+        texturas de arcilla y se ajustan las técnicas según las capacidades motoras individuales.
+      </div>
+
+      <div class="page-number">Página 2 de 8</div>
+    </div>
+
+    <!-- PÁGINA 3: PASO 1 -->
+    <div class="page">
+      <div class="website">arteinclusivoeducativo.com</div>
+
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <div>
+          <h2 style="margin: 0; color: white">Conocer la Tradición Alfarera</h2>
+          <p style="margin: 5px 0 0 0; opacity: 0.9">Aprende sobre la rica historia cerámica vallecaucana (15 min)</p>
+        </div>
+      </div>
+
+      <h3>🏺 La Alfarería en el Valle del Cauca:</h3>
+      <p style="line-height: 1.6; margin: 15px 0">
+        Los artesanos vallecaucanos han creado hermosas cerámicas durante generaciones, usando técnicas ancestrales para
+        moldear la arcilla. Esta tradición conecta el pasado con el presente, transformando la tierra en arte.
+      </p>
+
+      <h3>🏺 ¿Qué sabes sobre la cerámica?</h3>
+      <div style="border: 2px solid #88d8a3; padding: 20px; border-radius: 10px; background: #f0f8e8">
+        <p><strong>Dibuja o escribe aquí lo que conoces sobre la cerámica vallecaucana:</strong></p>
+        <div class="drawing-space">Espacio para dibujar o escribir sobre la cerámica vallecaucana</div>
+
+        <div style="margin: 20px 0">
+          <p><strong>¿Has visto alguna vez a alguien trabajando con arcilla?</strong></p>
+          <div style="border-bottom: 2px solid #ccc; margin: 10px 0; padding-bottom: 15px"></div>
+
+          <p><strong>¿Qué te imaginas que se puede hacer con arcilla?</strong></p>
+          <div style="border-bottom: 2px solid #ccc; margin: 10px 0; padding-bottom: 15px"></div>
+        </div>
+      </div>
+
+      <div class="adaptation-box">
+        <strong>🧠 Cognitiva:</strong> Muestra imágenes de cerámicas reales del Valle del Cauca. Cuenta historias sobre
+        los alfareros del Valle y explica con gestos simples las técnicas básicas.<br>
+        <strong>🤲 Motriz:</strong> Permite explorar con diferentes texturas de arcilla antes de comenzar. Proporciona
+        ejemplos táctiles de diferentes tipos de cerámica para que puedan sentir las texturas.
+      </div>
+
+      <div class="curious-fact">
+        <h4>🌟 Dato Vallecaucano</h4>
+        <p>
+          En el Valle del Cauca, especialmente en La Chamba (Tolima, región vecina), se elaboran cerámicas negras únicas
+          usando técnicas que datan de más de 500 años. Los artesanos usan arcilla local y técnicas de cocción
+          tradicionales que dan ese color negro característico.
+        </p>
+      </div>
+
+      <h3>🛠️ Herramientas Tradicionales:</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0">
+        <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border: 2px solid #88d8a3">
+          <h4 style="margin-top: 0">🌀 Torno de Alfarero</h4>
+          <p>Una rueda que gira para dar forma perfecta a las vasijas.</p>
+        </div>
+        <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border: 2px solid #88d8a3">
+          <h4 style="margin-top: 0">🤲 Las Manos</h4>
+          <p>La herramienta más importante: sensibles y creativas.</p>
+        </div>
+        <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border: 2px solid #88d8a3">
+          <h4 style="margin-top: 0">🥄 Herramientas Simples</h4>
+          <p>Palitos, piedras y cucharas para dar textura y forma.</p>
+        </div>
+        <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border: 2px solid #88d8a3">
+          <h4 style="margin-top: 0">🔥 Horno de Barro</h4>
+          <p>Para cocer las piezas y darles resistencia final.</p>
+        </div>
+      </div>
+
+      <div class="page-number">Página 3 de 8</div>
+    </div>
+
+    <!-- PÁGINA 4: PASO 2 -->
+    <div class="page">
+      <div class="website">arteinclusivoeducativo.com</div>
+
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <div>
+          <h2 style="margin: 0; color: white">Preparar y Amasar la Arcilla</h2>
+          <p style="margin: 5px 0 0 0; opacity: 0.9">Prepara tu material hasta que esté suave y flexible (15 min)</p>
+        </div>
+      </div>
+
+      <div class="technique-grid">
+        <div class="technique-item">
+          <h4 style="margin-top: 0">💧 Preparación</h4>
+          <ul class="checkbox-list">
+            <li><input type="checkbox">Si tu arcilla está muy seca, añade un poquito de agua</li>
+            <li><input type="checkbox">Si está muy húmeda, déjala reposar unos minutos</li>
+            <li><input type="checkbox">Busca la textura perfecta: ni muy seca ni muy húmeda</li>
+          </ul>
+        </div>
+        <div class="technique-item">
+          <h4 style="margin-top: 0">✋ Técnica de Amasado</h4>
+          <ul class="checkbox-list">
+            <li><input type="checkbox">Presiona con las palmas hacia abajo</li>
+            <li><input type="checkbox">Dobla la arcilla hacia ti</li>
+            <li><input type="checkbox">Repite hasta que esté suave</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🔍 Explora la Textura:</h3>
+      <div style="border: 2px solid #88d8a3; padding: 20px; border-radius: 10px; background: #f0f8e8">
+        <p><strong>Describe cómo se siente la arcilla:</strong></p>
+
+        <div style="margin: 15px 0">
+          <p><strong>Al principio:</strong></p>
+          <div style="border-bottom: 2px solid #ccc; margin: 10px 0; padding-bottom: 15px"></div>
+
+          <p><strong>Después de amasar:</strong></p>
+          <div style="border-bottom: 2px solid #ccc; margin: 10px 0; padding-bottom: 15px"></div>
+
+          <p><strong>Temperatura:</strong></p>
+          <div style="border-bottom: 2px solid #ccc; margin: 10px 0; padding-bottom: 15px"></div>
+        </div>
+      </div>
+
+      <h3>🎯 Señales de Arcilla Lista:</h3>
+      <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 15px 0">
+        <ul class="checkbox-list">
+          <li><input type="checkbox">Se siente suave al tacto</li>
+          <li><input type="checkbox">No se pega demasiado a las manos</li>
+          <li><input type="checkbox">Se puede moldear sin romperse</li>
+          <li><input type="checkbox">Tiene consistencia uniforme</li>
+          <li><input type="checkbox">No tiene grietas cuando la presionas</li>
+        </ul>
+      </div>
+
+      <div class="adaptation-box">
+        <strong>🧠 Cognitiva:</strong> Demuestra paso a paso el proceso de amasado. Usa palabras descriptivas para cada
+        textura y permite tiempo extra para explorar y familiarizarse con el material.<br>
+        <strong>🤲 Motriz:</strong> Proporciona ayuda con el amasado inicial si es necesario. Para sensibilidad táctil,
+        permite usar herramientas si el contacto directo es incómodo.
+      </div>
+
+      <div class="curious-fact">
+        <h4>🌍 Arcilla: Regalo de la Tierra</h4>
+        <p>
+          La arcilla es un material natural formado por la descomposición de rocas durante miles de años. En el Valle
+          del Cauca, la arcilla rica en minerales le da características especiales a las cerámicas locales.
+        </p>
+      </div>
+
+      <h3>⏰ Tiempo de Preparación:</h3>
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 15px 0">
+        <p><strong>Cronometra tu proceso:</strong></p>
+        <p>⏱️ Tiempo que tardé en amasar: _______ minutos</p>
+        <p>😊 ¿Cómo me sentí trabajando con la arcilla?</p>
+        <div style="border-bottom: 1px solid #ccc; margin: 10px 0; padding-bottom: 15px"></div>
+      </div>
+
+      <div class="page-number">Página 4 de 8</div>
+    </div>
+
+    <!-- PÁGINA 5: PASO 3 -->
+    <div class="page">
+      <div class="website">arteinclusivoeducativo.com</div>
+
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <div>
+          <h2 style="margin: 0; color: white">Modelar la Pieza Básica</h2>
+          <p style="margin: 5px 0 0 0; opacity: 0.9">Crea tu vasija, plato o figura decorativa (25 min)</p>
+        </div>
+      </div>
+
+      <h3>🎨 Planifica tu Creación:</h3>
+      <div style="border: 2px solid #88d8a3; padding: 20px; border-radius: 10px; background: #f0f8e8">
+        <p><strong>Dibuja aquí el diseño de tu pieza antes de modelar:</strong></p>
+        <div class="drawing-space">Espacio para dibujar el diseño de tu pieza cerámica</div>
+      </div>
+
+      <div class="technique-grid">
+        <div class="technique-item">
+          <h4 style="margin-top: 0">🏺 Si haces una Vasija</h4>
+          <ul class="checkbox-list">
+            <li><input type="checkbox">Haz una bola con la arcilla</li>
+            <li><input type="checkbox">Presiona el centro con el dedo</li>
+            <li><input type="checkbox">Ve ampliando poco a poco</li>
+            <li><input type="checkbox">Levanta las paredes suavemente</li>
+            <li><input type="checkbox">Mantén el grosor uniforme</li>
+          </ul>
+        </div>
+        <div class="technique-item">
+          <h4 style="margin-top: 0">🍽 Si haces un Plato</h4>
+          <ul class="checkbox-list">
+            <li><input type="checkbox">Aplana la arcilla</li>
+            <li><input type="checkbox">Dale forma circular</li>
+            <li><input type="checkbox">Levanta los bordes suavemente</li>
+            <li><input type="checkbox">Alisa la superficie</li>
+            <li><input type="checkbox">Verifica que esté bien equilibrado</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🛠️ Técnicas de Modelado:</h3>
+      <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 15px 0">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px">
+          <div>
+            <strong>👆 Pellizco:</strong><br>
+            <small>Pellizca la arcilla para dar forma</small>
+          </div>
+          <div>
+            <strong>🌀 Enrollado:</strong><br>
+            <small>Haz rollitos y construye con ellos</small>
+          </div>
+          <div>
+            <strong>✋ Palmeo:</strong><br>
+            <small>Usa las palmas para alisar</small>
+          </div>
+          <div>
+            <strong>🥄 Herramientas:</strong><br>
+            <small>Usa palitos para detalles</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="adaptation-box">
+        <strong>🧠 Cognitiva:</strong> Demuestra cada técnica varias veces. Divide el proceso en pasos muy pequeños y
+        celebra cada logro parcial.<br>
+        <strong>🤲 Motriz:</strong> Adapta las técnicas según las capacidades motoras. Proporciona moldes de apoyo si es
+        necesario o permite técnicas alternativas.
+      </div>
+
+      <div class="curious-fact">
+        <h4>🌟 Dato Vallecaucano</h4>
+        <p>
+          Los alfareros tradicionales del Valle del Cauca utilizan el torno de alfarero, una herramienta que gira y les
+          ayuda a crear piezas perfectamente redondas. Aunque nosotros usamos nuestras manos, ¡también podemos hacer
+          formas hermosas!
+        </p>
+      </div>
+
+      <h3>✅ Lista de Verificación:</h3>
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 15px 0">
+        <ul class="checkbox-list">
+          <li><input type="checkbox">Mi pieza tiene la forma que quería</li>
+          <li><input type="checkbox">Las paredes están equilibradas</li>
+          <li><input type="checkbox">No tiene grietas grandes</li>
+          <li><input type="checkbox">Puedo sostenerla sin que se rompa</li>
+          <li><input type="checkbox">Estoy satisfecho con el resultado</li>
+        </ul>
+      </div>
+
+      <div class="page-number">Página 5 de 8</div>
+    </div>
+
+    <!-- PÁGINA 6: PASO 4 -->
+    <div class="page">
+      <div class="website">arteinclusivoeducativo.com</div>
+
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <div>
+          <h2 style="margin: 0; color: white">Decorar con Técnicas Tradicionales</h2>
+          <p style="margin: 5px 0 0 0; opacity: 0.9">Aplica patrones y colores vallecaucanos (20 min)</p>
+        </div>
+      </div>
+
+      <div class="technique-grid">
+        <div class="technique-item">
+          <h4 style="margin-top: 0">🌸 Patrones Tradicionales</h4>
+          <ul style="list-style: none; padding: 0">
+            <li>🌺 Flores y hojas</li>
+            <li>🌊 Líneas onduladas como ríos</li>
+            <li>⚪ Puntos y círculos</li>
+            <li>📐 Formas geométricas</li>
+            <li>🦋 Figuras de la naturaleza</li>
+          </ul>
+        </div>
+        <div class="technique-item">
+          <h4 style="margin-top: 0">🎨 Colores del Valle</h4>
+          <div class="color-grid">
+            <div class="color-item">
+              <div style="width: 20px; height: 20px; background: green; border-radius: 50%"></div>
+              <span>Verde como la caña de azúcar</span>
+            </div>
+            <div class="color-item">
+              <div style="width: 20px; height: 20px; background: brown; border-radius: 50%"></div>
+              <span>Café como la tierra fértil</span>
+            </div>
+            <div class="color-item">
+              <div style="width: 20px; height: 20px; background: blue; border-radius: 50%"></div>
+              <span>Azul como el río Cauca</span>
+            </div>
+            <div class="color-item">
+              <div style="width: 20px; height: 20px; background: yellow; border-radius: 50%"></div>
+              <span>Amarillo como el sol tropical</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>💡 Consejos de Decoración:</h3>
+      <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 15px 0">
+        <ul class="checkbox-list">
+          <li><input type="checkbox">Usa pinceles de diferentes tamaños</li>
+          <li><input type="checkbox">Deja secar cada color antes del siguiente</li>
+          <li><input type="checkbox">Los patrones simples son los más efectivos</li>
+          <li><input type="checkbox">Puedes usar herramientas para hacer texturas</li>
+          <li><input type="checkbox">Combina máximo 3 colores para armonía</li>
+        </ul>
+      </div>
+
+      <h3>🎨 Mi Diseño Decorativo:</h3>
+      <div style="border: 2px solid #88d8a3; padding: 20px; border-radius: 10px; background: #f0f8e8">
+        <p><strong>Planifica tu decoración:</strong></p>
+        <div class="drawing-space">Dibuja aquí los patrones que vas a usar</div>
+
+        <p><strong>Colores elegidos:</strong></p>
+        <div style="border-bottom: 2px solid #ccc; margin: 10px 0; padding-bottom: 15px"></div>
+
+        <p><strong>¿Por qué elegiste estos patrones?</strong></p>
+        <div style="border-bottom: 2px solid #ccc; margin: 10px 0; padding-bottom: 15px"></div>
+      </div>
+
+      <div class="adaptation-box">
+        <strong>🧠 Cognitiva:</strong> Proporciona plantillas de patrones simples como guía. Demuestra cada técnica
+        previamente y permite practicar en papel antes de aplicar a la cerámica.<br>
+        <strong>🤲 Motriz:</strong> Usa pinceles con mangos más gruesos para facilitar el agarre. Adapta las técnicas
+        permitiendo el uso de esponjas o sellos si es necesario.
+      </div>
+
+      <div class="curious-fact">
+        <h4>🎨 Simbolismo Vallecaucano</h4>
+        <p>
+          En la cerámica tradicional vallecaucana, cada patrón tiene significado: las líneas onduladas representan los
+          ríos, las flores simbolizan la fertilidad de la tierra, y los círculos representan el ciclo de la vida y la
+          cosecha.
+        </p>
+      </div>
+
+      <div class="page-number">Página 6 de 8</div>
+    </div>
+
+    <!-- PÁGINA 7: PASO 5 -->
+    <div class="page">
+      <div class="website">arteinclusivoeducativo.com</div>
+
+      <div class="step-header">
+        <div class="step-number">5</div>
+        <div>
+          <h2 style="margin: 0; color: white">Secar y Presentar la Obra</h2>
+          <p style="margin: 5px 0 0 0; opacity: 0.9">Finaliza tu cerámica y comparte tu experiencia (15 min)</p>
+        </div>
+      </div>
+
+      <h3>🌞 Proceso de Secado:</h3>
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 15px 0">
+        <p>
+          <strong>Coloca tu pieza en un lugar seguro donde pueda secar al aire. Evita el sol directo para que no se
+            agriete.</strong>
+        </p>
+        <ul class="checkbox-list">
+          <li><input type="checkbox">Encuentra un lugar plano y seguro</li>
+          <li><input type="checkbox">Lejos de la luz solar directa</li>
+          <li><input type="checkbox">Con buena ventilación</li>
+          <li><input type="checkbox">Donde no la puedan tocar accidentalmente</li>
+        </ul>
+      </div>
+
+      <h3>🗣 Cuéntanos sobre tu Cerámica:</h3>
+      <div style="border: 2px solid #88d8a3; padding: 20px; border-radius: 10px; background: #f0f8e8">
+        <p><strong>¿Qué fue lo que más te gustó de trabajar con arcilla?</strong></p>
+        <div style="border-bottom: 2px solid #ccc; margin: 15px 0; padding-bottom: 20px"></div>
+
+        <p><strong>¿Qué patrones usaste para decorar?</strong></p>
+        <div style="border-bottom: 2px solid #ccc; margin: 15px 0; padding-bottom: 20px"></div>
+
+        <p><strong>¿Qué te gustaría hacer con tu pieza cuando esté seca?</strong></p>
+        <div style="border-bottom: 2px solid #ccc; margin: 15px 0; padding-bottom: 20px"></div>
+      </div>
+
+      <h3>🌍 Reflexión Cultural:</h3>
+      <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 15px 0">
+        <p style="line-height: 1.6">
+          Tu pieza cerámica forma parte de una tradición que conecta el pasado con el presente. Los alfareros del Valle
+          del Cauca han transmitido este arte de generación en generación.
+        </p>
+        <p><strong>¿Cómo podemos valorar y preservar estas tradiciones?</strong></p>
+        <div style="border-bottom: 2px solid #ccc; margin: 15px 0; padding-bottom: 20px"></div>
+      </div>
+
+      <div class="adaptation-box">
+        <strong>🧠 Cognitiva:</strong> Permite expresar las reflexiones a través de dibujos, gestos o palabras simples.
+        Facilita la comunicación con preguntas específicas y opciones múltiples.<br>
+        <strong>🤲 Motriz:</strong> Si hay dificultades para escribir, permite que dicten sus respuestas o usen símbolos
+        y dibujos para expresarse.
+      </div>
+
+      <div class="curious-fact">
+        <h4>🏺 El Valor del Tiempo</h4>
+        <p>
+          En la alfarería tradicional, el tiempo es fundamental. Cada etapa requiere paciencia: el secado natural puede
+          tomar días o semanas, pero es lo que le da resistencia y belleza a la pieza final.
+        </p>
+      </div>
+
+      <h3>📸 Presenta tu Obra:</h3>
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 15px 0">
+        <p><strong>Prepara tu presentación:</strong></p>
+        <ul class="checkbox-list">
+          <li><input type="checkbox">Limpia tu pieza suavemente</li>
+          <li><input type="checkbox">Piensa en lo que vas a compartir</li>
+          <li><input type="checkbox">Prepara tu explicación del proceso</li>
+          <li><input type="checkbox">¡Siéntete orgulloso de tu trabajo!</li>
+        </ul>
+      </div>
+
+      <div class="page-number">Página 7 de 8</div>
+    </div>
+
+    <!-- PÁGINA 8: AUTOEVALUACIÓN -->
+    <div class="page">
+      <div class="website">arteinclusivoeducativo.com</div>
+
+      <div class="header">
+        <h2>📊 ¿Cómo lo Hiciste?</h2>
+      </div>
+
+      <h3>🌟 Autoevaluación</h3>
+      <p>Marca con un círculo cómo te sentiste en cada parte:</p>
+
+      <div class="evaluation-grid">
+        <div><strong>Conocer la tradición alfarera</strong></div>
+        <div class="emoji-options">
+          <div class="emoji-box">😊</div>
+          <div class="emoji-box">😐</div>
+          <div class="emoji-box">😢</div>
+        </div>
+      </div>
+
+      <div class="evaluation-grid">
+        <div><strong>Preparar y amasar la arcilla</strong></div>
+        <div class="emoji-options">
+          <div class="emoji-box">😊</div>
+          <div class="emoji-box">😐</div>
+          <div class="emoji-box">😢</div>
+        </div>
+      </div>
+
+      <div class="evaluation-grid">
+        <div><strong>Modelar mi pieza</strong></div>
+        <div class="emoji-options">
+          <div class="emoji-box">😊</div>
+          <div class="emoji-box">😐</div>
+          <div class="emoji-box">😢</div>
+        </div>
+      </div>
+
+      <div class="evaluation-grid">
+        <div><strong>Decorar con patrones tradicionales</strong></div>
+        <div class="emoji-options">
+          <div class="emoji-box">😊</div>
+          <div class="emoji-box">😐</div>
+          <div class="emoji-box">😢</div>
+        </div>
+      </div>
+
+      <div class="evaluation-grid">
+        <div><strong>Presentar mi cerámica</strong></div>
+        <div class="emoji-options">
+          <div class="emoji-box">😊</div>
+          <div class="emoji-box">😐</div>
+          <div class="emoji-box">😢</div>
+        </div>
+      </div>
+
+      <h3>💭 Reflexión Final</h3>
+      <div style="margin: 30px 0">
+        <div style="background: #f0f8e8; padding: 15px; border-radius: 10px; margin: 15px 0; border: 2px solid #88d8a3">
+          <strong>¿Qué aprendiste sobre la cerámica vallecaucana?</strong>
+          <div style="height: 40px; border-bottom: 1px solid #ccc; margin: 15px 0"></div>
+        </div>
+
+        <div style="background: #f0f8e8; padding: 15px; border-radius: 10px; margin: 15px 0; border: 2px solid #88d8a3">
+          <strong>¿Cuál fue tu parte favorita del proyecto?</strong>
+          <div style="height: 40px; border-bottom: 1px solid #ccc; margin: 15px 0"></div>
+        </div>
+
+        <div style="background: #f0f8e8; padding: 15px; border-radius: 10px; margin: 15px 0; border: 2px solid #88d8a3">
+          <strong>¿Te gustaría aprender más técnicas de cerámica?</strong>
+          <div style="height: 40px; border-bottom: 1px solid #ccc; margin: 15px 0"></div>
+        </div>
+      </div>
+
+      <div style="
+          text-align: center;
+          margin: 30px 0;
+          background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+          padding: 25px;
+          border-radius: 15px;
+          color: #2d5016;
+        ">
+        <h2 style="margin: 0">🎯 ¡Felicitaciones!</h2>
+        <p style="margin: 10px 0 0 0; font-size: 1.1em">
+          Has creado tu propia pieza cerámica siguiendo la tradición vallecaucana y has aprendido sobre el arte de la
+          alfarería.
+        </p>
+        <div style="font-size: 2em; margin: 15px 0">🏺🎨🌟</div>
+      </div>
+
+      <div class="page-number">Página 8 de 8</div>
+    </div>
+  
+
+</body></html>
