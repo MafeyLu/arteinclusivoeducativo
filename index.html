@@ -1668,6 +1668,204 @@
             </div>
         </section>
 
+<!-- Sección Experiencias -->
+<section id="experiencias" class="content-section">
+    <div class="container">
+        <h2>🌟 Experiencias Docentes</h2>
+        <p class="experiencias-intro">
+            Comparte tu experiencia usando nuestros cuadernillos o cualquier actividad de arte inclusivo. 
+            Tu práctica puede inspirar a otros docentes en toda Latinoamérica.
+        </p>
+
+        <!-- Formulario de envío -->
+        <div class="experiencias-form-container">
+            <h3>📝 Compartir Mi Experiencia</h3>
+            <form id="experienciasForm" action="https://formspree.io/f/myznlbkd" method="POST" enctype="multipart/form-data">
+                
+                <!-- Identificación del Docente -->
+                <div class="form-section">
+                    <h4>👤 Información del Docente</h4>
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej: María González">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="institucion">Institución/Colegio</label>
+                            <input type="text" id="institucion" name="institucion" placeholder="Ej: Escuela Primaria San José">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ubicacion">Ciudad/País</label>
+                            <input type="text" id="ubicacion" name="ubicacion" placeholder="Ej: Bogotá, Colombia">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información de la Actividad -->
+                <div class="form-section">
+                    <h4>🎨 Información de la Actividad</h4>
+                    
+                    <div class="form-group">
+                        <label for="titulo">Título de la Actividad *</label>
+                        <input type="text" id="titulo" name="titulo" required placeholder="Ej: Collage con materiales reciclados">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Descripción de la Experiencia * (máx. 500 palabras)</label>
+                        <textarea id="descripcion" name="descripcion" required rows="6" maxlength="3000" placeholder="Cuéntanos: ¿Qué hiciste? ¿Cómo resultó? ¿Qué aprendieron los estudiantes? ¿Qué desafíos encontraste?"></textarea>
+                        <small class="char-counter">0 / 3000 caracteres</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edad">Edad de los Estudiantes *</label>
+                            <select id="edad" name="edad" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="5-7 años">5-7 años</option>
+                                <option value="8-10 años">8-10 años</option>
+                                <option value="11-13 años">11-13 años</option>
+                                <option value="14-16 años">14-16 años</option>
+                                <option value="17+ años">17+ años</option>
+                                <option value="Mixto">Edades mixtas</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duracion">Duración Aproximada *</label>
+                            <select id="duracion" name="duracion" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="30 min">30 minutos</option>
+                                <option value="45 min">45 minutos</option>
+                                <option value="60 min">60 minutos</option>
+                                <option value="90 min">90 minutos</option>
+                                <option value="Más de 90 min">Más de 90 minutos</option>
+                                <option value="Varias sesiones">Varias sesiones</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Necesidades Educativas Especiales Trabajadas *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="nee" value="Visual"> Visual
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="nee" value="Auditiva"> Auditiva
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="nee" value="Cognitiva"> Cognitiva
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="nee" value="Motriz"> Motriz
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="nee" value="TEA"> TEA
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="nee" value="TDAH"> TDAH
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="nee" value="Otra"> Otra
+                            </label>
+                        </div>
+                        <small id="neeError" class="error-message" style="display:none;">Selecciona al menos una NEE</small>
+                    </div>
+                </div>
+
+                <!-- Multimedia -->
+                <div class="form-section">
+                    <h4>📸 Material Multimedia</h4>
+                    
+                    <div class="form-group">
+                        <label for="foto">URL de Foto (Google Drive, Dropbox, Imgur)</label>
+                        <input type="url" id="foto" name="foto" placeholder="https://drive.google.com/...">
+                        <small>Sube tu foto a Google Drive (público) o Imgur y pega el link aquí</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="video">Link de Video YouTube (opcional)</label>
+                        <input type="url" id="video" name="video" placeholder="https://www.youtube.com/watch?v=...">
+                    </div>
+                </div>
+
+                <!-- Información de Contacto -->
+                <div class="form-section">
+                    <h4>📞 Información de Contacto (Opcional)</h4>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="deseaContacto" name="desea_contacto" value="Si">
+                            Sí, deseo que otros docentes puedan contactarme
+                        </label>
+                    </div>
+
+                    <div id="datosContacto" style="display:none; margin-top: 15px;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp/Teléfono</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+57 300 123 4567">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="instagram">Instagram</label>
+                                <input type="text" id="instagram" name="instagram" placeholder="@usuario">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email_contacto">Email de Contacto</label>
+                            <input type="email" id="email_contacto" name="email_contacto" placeholder="mi.email@ejemplo.com">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autorizaciones -->
+                <div class="form-section autorizaciones">
+                    <h4>✅ Autorizaciones</h4>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label-block">
+                            <input type="checkbox" id="autorizacion1" name="autorizacion_publicacion" required>
+                            <span>Autorizo la publicación de este material educativo en la plataforma Arte Inclusivo Educativo para fines pedagógicos y de divulgación. *</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label-block">
+                            <input type="checkbox" id="autorizacion2" name="autorizacion_derechos" required>
+                            <span>Certifico que tengo los derechos necesarios sobre las imágenes y videos compartidos, y cuento con las autorizaciones correspondientes si aparecen estudiantes. *</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Botón de envío -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        <span class="btn-text">📤 Enviar Mi Experiencia</span>
+                        <span class="btn-loading" style="display:none;">⏳ Enviando...</span>
+                    </button>
+                </div>
+
+                <!-- Mensajes -->
+                <div id="formMessage" class="form-message" style="display:none;"></div>
+            </form>
+        </div>
+
+        <!-- Aquí irán las experiencias publicadas (próxima fase) -->
+        <div class="experiencias-publicadas" style="margin-top: 60px; display:none;">
+            <h3>✨ Experiencias Compartidas por la Comunidad</h3>
+            <div id="experienciasGrid" class="experiencias-grid">
+                <!-- Las experiencias aparecerán aquí cuando las publiques manualmente -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
         <!-- Sobre el Proyecto Section -->
         <section id="sobre-proyecto" class="content-section">
             <div class="about-section">
