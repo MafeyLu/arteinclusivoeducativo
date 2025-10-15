@@ -2354,6 +2354,85 @@
                 showSection('experiencias');
             }, 1000);
         }
+// ============================================
+// FUNCIONALIDAD FORMULARIO EXPERIENCIAS
+// ============================================
+
+// Contador de caracteres para descripción
+const descripcionTextarea = document.getElementById('descripcion');
+const charCounter = document.querySelector('.char-counter');
+
+if (descripcionTextarea) {
+    descripcionTextarea.addEventListener('input', function() {
+        const length = this.value.length;
+        charCounter.textContent = `${length} / 3000 caracteres`;
+        
+        if (length > 2500) {
+            charCounter.style.color = '#dc3545';
+        } else {
+            charCounter.style.color = '#adb5bd';
+        }
+    });
+}
+
+// Mostrar/ocultar campos de contacto
+const deseaContactoCheckbox = document.getElementById('deseaContacto');
+const datosContactoDiv = document.getElementById('datosContacto');
+
+if (deseaContactoCheckbox) {
+    deseaContactoCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            datosContactoDiv.style.display = 'block';
+        } else {
+            datosContactoDiv.style.display = 'none';
+            // Limpiar campos si se desmarca
+            document.getElementById('whatsapp').value = '';
+            document.getElementById('instagram').value = '';
+            document.getElementById('email_contacto').value = '';
+        }
+    });
+}
+
+// Validación del formulario
+const experienciasForm = document.getElementById('experienciasForm');
+const formMessage = document.getElementById('formMessage');
+
+if (experienciasForm) {
+    experienciasForm.addEventListener('submit', function(e) {
+        // Validar que al menos un checkbox NEE esté marcado
+        const neeCheckboxes = document.querySelectorAll('input[name="nee"]:checked');
+        const neeError = document.getElementById('neeError');
+        
+        if (neeCheckboxes.length === 0) {
+            e.preventDefault();
+            neeError.style.display = 'block';
+            neeError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false;
+        } else {
+            neeError.style.display = 'none';
+        }
+
+        // Mostrar estado de carga
+        const btnText = document.querySelector('.btn-text');
+        const btnLoading = document.querySelector('.btn-loading');
+        const btnSubmit = document.querySelector('.btn-submit');
+        
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+        btnSubmit.disabled = true;
+
+        // Formspree manejará el envío real
+    });
+}
+
+// Si vuelves de Formspree con éxito
+if (window.location.hash === '#success') {
+    formMessage.style.display = 'block';
+    formMessage.className = 'form-message success';
+    formMessage.textContent = '✅ ¡Experiencia enviada con éxito! La revisaremos pronto y la publicaremos en la plataforma.';
+    formMessage.scrollIntoView({ behavior: 'smooth' });
+}
+
     </script>
 </body>
 </html>
