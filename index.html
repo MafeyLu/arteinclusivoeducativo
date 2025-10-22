@@ -139,13 +139,15 @@
 
         /* Content Sections */
         .content-section {
-            display: none;
-            animation: fadeIn 0.5s ease-in;
-        }
+    display: none !important;
+    animation: fadeIn 0.5s ease-in;
+}
 
-        .content-section.active {
-            display: block;
-        }
+.content-section.active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
