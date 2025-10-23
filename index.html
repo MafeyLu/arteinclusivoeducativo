@@ -2877,11 +2877,40 @@
     <script>
         // Navigation functionality
         function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
+    // Hide all sections
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Show selected section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
+        
+        // FIX ESPECIAL para sobre-proyecto
+        if (sectionId === 'sobre-proyecto') {
+            setTimeout(() => {
+                targetSection.style.display = 'block';
+                targetSection.style.visibility = 'visible';
+                targetSection.style.opacity = '1';
+                targetSection.style.minHeight = '500px';
+                
+                // Forzar todos los elementos internos
+                const allElements = targetSection.querySelectorAll('*');
+                allElements.forEach(el => {
+                    el.style.visibility = 'visible';
+                    el.style.opacity = '1';
+                    if (el.tagName !== 'IMG' && el.style.display === 'none') {
+                        el.style.display = 'block';
+                    }
+                });
+                
+                // Scroll hacia la sección
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    }
 
             // Show selected section
             const targetSection = document.getElementById(sectionId);
