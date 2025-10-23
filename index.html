@@ -164,6 +164,34 @@
     opacity: 1 !important;
 }
 
+/* SOLUCIÓN ULTRA-FORZADA para Sobre el Proyecto */
+#sobre-proyecto,
+#sobre-proyecto * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+#sobre-proyecto img {
+    display: inline-block !important;
+}
+
+#sobre-proyecto div[style*="display: grid"],
+#sobre-proyecto div[style*="grid-template"] {
+    display: grid !important;
+}
+
+#sobre-proyecto div[style*="display: flex"] {
+    display: flex !important;
+}
+
+/* Forzar backgrounds y colores */
+#sobre-proyecto div[style*="background"] {
+    background: inherit !important;
+}
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
