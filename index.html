@@ -333,15 +333,39 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        /* About Section */
-        .about-section {
-            background: white;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        /* About Section - FIXED */
+.about-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
+/* Forzar visibilidad de todos los elementos hijos */
+.about-section * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Elementos específicos que usan display diferente */
+.about-section h2,
+.about-section h3,
+.about-section p,
+.about-section ul,
+.about-section li,
+.about-section div {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
         .about-section h2 {
             color: #003366;
             margin-bottom: 1rem;
